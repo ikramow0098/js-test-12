@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Business Dashboard</title>
+  <style>
+    .metric-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+      display: inline-block;
+      background-color: #fff;
+    }
+    .product-item {
+      cursor: pointer;
+    }
+    .customer-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Business Dashboard</h1>
+
+  <!-- Dashboard Metrics Section -->
+  <h2>Dashboard Metrics</h2>
+  <div id="dashboardMetrics"></div>
+
+  <!-- Inventory List Section -->
+  <h2>Inventory Section</h2>
+  <ul id="inventoryList"></ul>
+  <button onclick="addItem('Laptop')">Add Laptop</button>
+  <button onclick="addItem('Smartphone')">Add Smartphone</button>
+
+  <!-- Customer Section -->
+  <h2>Customer Section</h2>
+  <div id="customerSection"></div>
+
+  <!-- Link to JavaScript File -->
+  <script src="cc_12.js"></script>
+</body>
+</html>
