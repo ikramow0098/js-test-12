@@ -54,3 +54,42 @@ metricCardsArray.forEach((card) => {
   }
 });
 
+/*******************************************************
+ * TASK 3: Dynamic Inventory List
+ * -----------------------------------------------------
+ * HTML structure assumed:
+ *   <ul id="inventoryList"></ul>
+ *   <button onclick="addItem('Laptop')">Add Laptop</button>
+ *   <button onclick="addItem('Smartphone')">Add Smartphone</button>
+ *
+ * 1. Write a function addItem(productName) that:
+ *    - Creates <li class="product-item"> with innerText = productName
+ *    - Appends to #inventoryList
+ *    - Attaches a click event that removes itself
+ * 2. Clicking an item calls removeChild on #inventoryList
+ *******************************************************/
+
+// Function to add a new product item
+function addItem(productName) {
+  const inventoryList = document.getElementById("inventoryList");
+
+  // Create new <li> element
+  const li = document.createElement("li");
+  li.setAttribute("class", "product-item");
+  li.innerText = productName;
+
+  // Attach click event to remove item
+  li.addEventListener("click", function () {
+    removeItem(li);
+  });
+
+  // Append to inventory list
+  inventoryList.appendChild(li);
+}
+
+// Function to remove a product item
+function removeItem(itemElement) {
+  const inventoryList = document.getElementById("inventoryList");
+  inventoryList.removeChild(itemElement);
+}
+
