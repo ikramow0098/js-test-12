@@ -28,3 +28,29 @@ revenueCard.innerHTML = `
 dashboardById.appendChild(revenueCard);
 // (Alternatively) dashboardByQuery.appendChild(revenueCard);
 
+/*******************************************************
+ * TASK 2: Updating All Metric Cards
+ * -----------------------------------------------------
+ * 1. Use querySelectorAll to select all ".metric-card".
+ * 2. Convert the NodeList to an array.
+ * 3. Use .forEach() to update each card's style or text.
+ *******************************************************/
+
+// Select all metric cards
+const metricCardsNodeList = document.querySelectorAll(".metric-card");
+
+// Convert NodeList to array
+const metricCardsArray = Array.from(metricCardsNodeList);
+
+// Update each card (e.g., add " - Updated" to text or change background)
+metricCardsArray.forEach((card) => {
+  // Example: change background color
+  card.style.backgroundColor = "#f0f0f0";
+
+  // Example: append " - Updated" to the <h3> text
+  const heading = card.querySelector("h3");
+  if (heading) {
+    heading.innerText += " - Updated";
+  }
+});
+
