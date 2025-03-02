@@ -93,3 +93,46 @@ function removeItem(itemElement) {
   inventoryList.removeChild(itemElement);
 }
 
+/*******************************************************
+ * TASK 4: Demonstrating Event Bubbling in Customer Section
+ * -----------------------------------------------------
+ * HTML structure assumed:
+ *   <div id="customerSection">
+ *     <!-- multiple .customer-card elements here -->
+ *   </div>
+ *
+ * 1. Create some .customer-card elements inside #customerSection.
+ * 2. Each .customer-card has a click event that logs "Customer card clicked"
+ *    and calls stopPropagation().
+ * 3. The #customerSection has its own click event that logs "Customer section clicked".
+ * 4. By removing stopPropagation(), we can see the parent's event fire too.
+ *******************************************************/
+
+// Setup some initial customer cards
+function setupCustomerCards() {
+  const customerSection = document.getElementById("customerSection");
+
+  // Example: create 3 customer cards
+  for (let i = 1; i <= 3; i++) {
+    const card = document.createElement("div");
+    card.className = "customer-card";
+    card.innerText = `Customer Card ${i}`;
+
+    // Child event listener
+    card.addEventListener("click", function (e) {
+      console.log("Customer card clicked");
+      e.stopPropagation(); // Prevent parent container from firing
+    });
+
+    customerSection.appendChild(card);
+  }
+
+  // Parent event listener
+  customerSection.addEventListener("click", function () {
+    console.log("Customer section clicked");
+  });
+}
+
+// Call the setup function so we actually create the cards
+setupCustomerCards();
+
